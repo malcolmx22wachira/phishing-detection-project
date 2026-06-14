@@ -4,3 +4,5 @@ timestamp,url,verdict,score,triggered
 2026-06-12 19:19:39.356233,https://google.com,LEGITIMATE,0,[]
 2026-06-13 15:38:50.689582,SDGSFB,LEGITIMATE,1,['No HTTPS']
 2026-06-14 08:51:33.549677,http://instagarn.com/login,PHISHING,2,"['No HTTPS', 'Suspicious Keywords']"
+2026-06-14 09:00:12.588986,http://login-instagram-secure-update.com,PHISHING,2,"['No HTTPS', 'Suspicious Keywords']"
+2026-06-14 09:05:17.065853,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"

@@ -8,19 +8,21 @@ from detection.rule_engine import RuleEngine
 
 app = Flask(__name__)
 
-# -------------------------
+
+# =====================================
 # HOME PAGE
-# -------------------------
+# =====================================
 @app.route('/')
 def home():
     return render_template('index.html')
 
 
-# -------------------------
-# ANALYSE ROUTE
-# -------------------------
+# =====================================
+# URL ANALYSIS
+# =====================================
 @app.route('/analyse', methods=['POST'])
 def analyse():
+
     url = request.form['url']
 
     parser = URLParser()
@@ -29,14 +31,24 @@ def analyse():
     features = parser.parse(url)
     result = engine.analyse(features)
 
+    # Create logs folder if missing
     os.makedirs("logs", exist_ok=True)
+
     log_file = os.path.join("logs", "analysis_log.csv")
 
+    # Create CSV if missing
     if not os.path.exists(log_file):
         with open(log_file, "w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
-            writer.writerow(["timestamp", "url", "verdict", "score", "triggered"])
+            writer.writerow([
+                "timestamp",
+                "url",
+                "verdict",
+                "score",
+                "triggered_rules"
+            ])
 
+    # Append analysis result
     with open(log_file, "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
         writer.writerow([
@@ -44,7 +56,7 @@ def analyse():
             url,
             result["verdict"],
             result["score"],
-            str(result["triggered"])
+            ", ".join(result["triggered"])
         ])
 
     return render_template(
@@ -55,32 +67,50 @@ def analyse():
     )
 
 
-# -------------------------
-# SIMULATION PAGE
-# -------------------------
+# =====================================
+# PHISHING SIMULATION PAGE
+# =====================================
 @app.route('/simulation')
 def simulation():
     return render_template('simulation.html')
 
 
-# -------------------------
+# =====================================
 # CAPTURE CREDENTIALS
-# -------------------------
+# =====================================
 @app.route('/simulation/capture', methods=['POST'])
 def capture():
+
     username = request.form['username']
     password = request.form['password']
 
     os.makedirs("logs", exist_ok=True)
 
-    with open("logs/credentials.txt", "a", encoding="utf-8") as f:
-        f.write(f"{datetime.now()} | {username} | {password}\n")
+    credential_file = os.path.join(
+        "logs",
+        "credentials.txt"
+    )
 
-    return render_template("capture_result.html", username=username)
+    with open(
+        credential_file,
+        "a",
+        encoding="utf-8"
+    ) as f:
+
+        f.write(
+            f"{datetime.now()} | "
+            f"{username} | "
+            f"{password}\n"
+        )
+
+    return render_template(
+        "education.html",
+        username=username
+    )
 
 
-# -------------------------
-# RUN APP
-# -------------------------
+# =====================================
+# RUN APPLICATION
+# =====================================
 if __name__ == "__main__":
     app.run(debug=True)
