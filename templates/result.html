@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Result</title>
+</head>
+<body style="font-family: Arial; text-align: center;">
+
+    <h1>Phishing Detection Result</h1>
+
+    <h2>{{ verdict }}</h2>
+
+    <p><b>Score:</b> {{ score }}</p>
+
+    <p><b>Triggered Rules:</b></p>
+
+    <ul style="list-style: none;">
+        {% for rule in triggered %}
+            <li>{{ rule }}</li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    <a href="/">Analyse another URL</a>
+
+</body>
+</html>
