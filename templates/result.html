@@ -1,27 +1,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Result</title>
+    <title>Analysis Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
-<body style="font-family: Arial; text-align: center;">
 
-    <h1>Phishing Detection Result</h1>
+<body>
 
-    <h2>{{ verdict }}</h2>
+<div class="container">
 
-    <p><b>Score:</b> {{ score }}</p>
+    {% if verdict == "PHISHING" %}
+        <div class="danger-card">
+            <h1>⚠️ PHISHING DETECTED</h1>
+        </div>
+    {% else %}
+        <div class="safe-card">
+            <h1>✅ LEGITIMATE URL</h1>
+        </div>
+    {% endif %}
 
-    <p><b>Triggered Rules:</b></p>
+    <div class="risk-box">
 
-    <ul style="list-style: none;">
-        {% for rule in triggered %}
-            <li>{{ rule }}</li>
+        <h2>Risk Score: {{ score }}/6</h2>
+
+        <div class="progress">
+
+            <div class="progress-bar"
+                 style="width: {{ (score/6)*100 }}%;">
+                 {{ score }}/6
+            </div>
+
+        </div>
+
+        <p>Detection Threshold: 2 Points</p>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Triggered Rules</h2>
+
+        <ul>
+
+        {% for rule in triggered_rules %}
+            <li>✅ {{ rule }}</li>
         {% endfor %}
-    </ul>
+
+        </ul>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Extracted URL Features</h2>
+
+        <table>
+
+            <tr>
+                <th>Feature</th>
+                <th>Value</th>
+            </tr>
+
+            {% for key,value in features.items() %}
+
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+    <div class="info-card">
+
+        <h2>Why Was This URL Flagged?</h2>
+
+        <p>
+
+        This URL triggered
+        <strong>{{ score }}</strong>
+        phishing indicators.
+
+        URLs scoring 2 or more points
+        are classified as phishing.
+
+        The system uses rule-based analysis
+        including URL length, HTTPS usage,
+        suspicious keywords, subdomains,
+        special characters and domain similarity.
+
+        </p>
+
+    </div>
 
     <br>
 
-    <a href="/">Analyse another URL</a>
+    <a href="/">Analyze Another URL</a>
+
+</div>
 
 </body>
 </html>

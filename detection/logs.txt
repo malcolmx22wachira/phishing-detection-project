@@ -1,0 +1,6 @@
+{'time': '2026-06-20 16:08:11.131751', 'url': 'http://secure-login-bank.example.com/login', 'scheme': 'http', 'domain': 'secure-login-bank.example.com', 'path': '/login', 'suspicious': True, 'reasons': ['Uses HTTP', 'Keyword: login', 'Keyword: secure', 'Keyword: bank']}
+{'time': '2026-06-20 16:08:11.132260', 'url': 'https://google.com', 'scheme': 'https', 'domain': 'google.com', 'path': '', 'suspicious': False, 'reasons': []}
+{'time': '2026-06-20 16:08:11.132776', 'url': 'http://192.168.1.10/login', 'scheme': 'http', 'domain': '192.168.1.10', 'path': '/login', 'suspicious': True, 'reasons': ['Uses HTTP', 'Keyword: login']}
+{'time': '2026-06-20 16:08:11.133285', 'url': 'https://update-security-bank-verify.example.com/account', 'scheme': 'https', 'domain': 'update-security-bank-verify.example.com', 'path': '/account', 'suspicious': True, 'reasons': ['Keyword: verify', 'Keyword: update', 'Keyword: bank']}
+{'time': '2026-06-20 16:08:11.152565', 'url': 'https://github.com', 'scheme': 'https', 'domain': 'github.com', 'path': '', 'suspicious': False, 'reasons': []}
+{'time': '2026-06-20 16:08:11.153080', 'url': 'http://free-money-verify-bank-login.com', 'scheme': 'http', 'domain': 'free-money-verify-bank-login.com', 'path': '', 'suspicious': True, 'reasons': ['Uses HTTP', 'Keyword: login', 'Keyword: verify', 'Keyword: bank']}

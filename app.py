@@ -28,18 +28,31 @@ def analyse():
     parser = URLParser()
     engine = RuleEngine()
 
+    # Extract URL features
     features = parser.parse(url)
+
+    # Run detection engine
     result = engine.analyse(features)
 
-    # Create logs folder if missing
+    # Create logs folder if it doesn't exist
     os.makedirs("logs", exist_ok=True)
 
-    log_file = os.path.join("logs", "analysis_log.csv")
+    log_file = os.path.join(
+        "logs",
+        "analysis_log.csv"
+    )
 
-    # Create CSV if missing
+    # Create CSV file if missing
     if not os.path.exists(log_file):
-        with open(log_file, "w", newline="", encoding="utf-8") as f:
+        with open(
+            log_file,
+            "w",
+            newline="",
+            encoding="utf-8"
+        ) as f:
+
             writer = csv.writer(f)
+
             writer.writerow([
                 "timestamp",
                 "url",
@@ -48,9 +61,16 @@ def analyse():
                 "triggered_rules"
             ])
 
-    # Append analysis result
-    with open(log_file, "a", newline="", encoding="utf-8") as f:
+    # Save analysis result
+    with open(
+        log_file,
+        "a",
+        newline="",
+        encoding="utf-8"
+    ) as f:
+
         writer = csv.writer(f)
+
         writer.writerow([
             datetime.now(),
             url,
@@ -61,9 +81,11 @@ def analyse():
 
     return render_template(
         "result.html",
+        url=url,
         verdict=result["verdict"],
         score=result["score"],
-        triggered=result["triggered"]
+        triggered=result["triggered"],
+        features=features
     )
 
 

@@ -1,0 +1,86 @@
+body{
+    font-family:Arial,sans-serif;
+    background:#f5f7fa;
+    margin:0;
+    padding:0;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    padding:20px;
+}
+
+.danger-card{
+    background:#ffdddd;
+    color:#a00000;
+    padding:20px;
+    border-left:8px solid red;
+    margin-bottom:20px;
+}
+
+.safe-card{
+    background:#ddffdd;
+    color:#006600;
+    padding:20px;
+    border-left:8px solid green;
+    margin-bottom:20px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-top:20px;
+    border-radius:10px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.info-card{
+    background:#e7f3ff;
+    padding:20px;
+    margin-top:20px;
+    border-radius:10px;
+}
+
+.risk-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+}
+
+.progress{
+    width:100%;
+    background:#ddd;
+    height:35px;
+    border-radius:20px;
+    overflow:hidden;
+}
+
+.progress-bar{
+    height:100%;
+    background:linear-gradient(
+        90deg,
+        green,
+        orange,
+        red
+    );
+    color:white;
+    text-align:center;
+    line-height:35px;
+    font-weight:bold;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+table th,
+table td{
+    border:1px solid #ccc;
+    padding:10px;
+}
+
+table th{
+    background:#f0f0f0;
+}
