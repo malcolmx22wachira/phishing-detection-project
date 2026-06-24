@@ -1,33 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-    <title>Phishing Detection Tool</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Phishing Detection System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='analyse.css') }}">
 </head>
 
-<body style="font-family: Arial; text-align: center; margin-top: 80px;">
+<body>
 
-    <h1>URL Phishing Detection System</h1>
+<div class="analyse-container">
 
-    <p>Enter a URL to analyse</p>
+    <div class="analyse-card">
 
-    <form action="/analyse" method="POST">
-        <input type="text"
-               name="url"
-               placeholder="Enter URL here"
-               required
-               style="width: 300px; padding: 10px;">
+        <div class="logo">
+            <h1>🛡 URL Phishing Detection System</h1>
+        </div>
 
-        <br><br>
+        <p class="subtitle">
+            Analyse URLs and identify phishing indicators using a
+            rule-based phishing detection engine.
+        </p>
 
-        <button type="submit"
-                style="padding: 10px 20px;">
-            Analyse
-        </button>
-    </form>
+        <form action="/analyse" method="POST">
 
-    <br><br>
+            <input
+                class="url-input"
+                type="text"
+                name="url"
+                placeholder="Enter URL to analyse..."
+                required>
 
-    <a href="/simulation">Go to Simulation Page</a>
+            <button
+                class="analyse-btn"
+                type="submit">
+                🔍 Analyse URL
+            </button>
+
+        </form>
+
+        <div class="info-box">
+
+            <h3>Detection Features</h3>
+
+            <ul>
+                <li>URL Length Analysis</li>
+                <li>HTTPS Verification</li>
+                <li>Suspicious Keyword Detection</li>
+                <li>Special Character Analysis</li>
+                <li>Subdomain Detection</li>
+                <li>Domain Similarity Checking</li>
+            </ul>
+
+        </div>
+
+        <a href="/simulation" class="sim-link">
+            Go to Simulation Page
+        </a>
+
+    </div>
+
+</div>
 
 </body>
 </html>
