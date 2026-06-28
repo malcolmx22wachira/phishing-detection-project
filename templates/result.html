@@ -37,21 +37,32 @@
         <p>Detection Threshold: 2 Points</p>
 
     </div>
-
     <div class="card">
 
-        <h2>Triggered Rules</h2>
+    <h2>Triggered Rules</h2>
 
-        <ul>
+    {% if triggered %}
 
-        {% for rule in triggered_rules %}
-            <li>✅ {{ rule }}</li>
-        {% endfor %}
+        <ul class="rules-list">
+
+            {% for rule in triggered %}
+
+                <li class="rule-item">
+                    ✅ {{ rule }}
+                </li>
+
+            {% endfor %}
 
         </ul>
 
-    </div>
+    {% else %}
 
+        <p>No phishing rules were triggered.</p>
+
+    {% endif %}
+
+</div>
+   
     <div class="card">
 
         <h2>Extracted URL Features</h2>

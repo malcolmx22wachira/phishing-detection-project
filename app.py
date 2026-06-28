@@ -2,11 +2,30 @@ from flask import Flask, render_template, request
 from datetime import datetime
 import os
 import csv
-
+from urllib.parse import urlparse
 from detection.url_parser import URLParser
 from detection.rule_engine import RuleEngine
 
+
 app = Flask(__name__)
+def is_valid_url(url):
+    """
+    Returns True if the URL has:
+    - http or https
+    - a valid domain
+    """
+
+    try:
+        parsed = urlparse(url)
+
+        return (
+            parsed.scheme in ("http", "https")
+            and "." in parsed.netloc
+            and len(parsed.netloc) > 3
+        )
+
+    except Exception:
+        return False
 
 
 # =====================================
@@ -25,6 +44,12 @@ def analyse():
 
     url = request.form['url']
 
+    if not is_valid_url(url):
+        return render_template(
+            "index.html",
+            error="Please enter a valid URL"
+    )
+
     parser = URLParser()
     engine = RuleEngine()
 
@@ -33,6 +58,9 @@ def analyse():
 
     # Run detection engine
     result = engine.analyse(features)
+    print("========== DEBUG ==========")
+    print(result)
+    print("===========================")
 
     # Create logs folder if it doesn't exist
     os.makedirs("logs", exist_ok=True)

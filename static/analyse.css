@@ -100,3 +100,15 @@ body{
     color:#6f42c1;
     font-weight:bold;
 }
+
+.error-message{
+    max-width:700px;
+    margin:20px auto;
+    padding:15px;
+    border-radius:8px;
+    background:#ffe6e6;
+    color:#b30000;
+    border-left:5px solid red;
+    font-weight:bold;
+    text-align:center;
+}

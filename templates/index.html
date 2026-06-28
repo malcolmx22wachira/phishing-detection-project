@@ -25,6 +25,11 @@
             rule-based phishing detection engine.
         </p>
 
+        {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+        {% endif %}
         <form action="/analyse" method="POST">
 
             <input
