@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Analysis History</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='logs.css') }}">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<header>
+
+<h1>Phishing Detection System</h1>
+
+<p>URL Analysis History</p>
+
+</header>
+
+<div class="stats">
+
+<div class="card">
+
+<h2>{{ logs|length }}</h2>
+
+<p>Total Analyses</p>
+
+</div>
+
+<div class="card">
+
+<h2>CSV</h2>
+
+<p>Stored Locally</p>
+
+</div>
+
+<div class="card">
+
+<h2>Real Time</h2>
+
+<p>Auto Updated</p>
+
+</div>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Date & Time</th>
+
+<th>URL</th>
+
+<th>Verdict</th>
+
+<th>Score</th>
+
+<th>Triggered Rules</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+{% if logs %}
+
+{% for row in logs %}
+
+<tr>
+
+<td>{{ row.timestamp }}</td>
+
+<td class="url">{{ row.url }}</td>
+
+<td>
+
+{% if row.verdict|lower == "legitimate" %}
+
+<span class="safe">
+
+{{ row.verdict }}
+
+</span>
+
+{% else %}
+
+<span class="danger">
+
+{{ row.verdict }}
+
+</span>
+
+{% endif %}
+
+</td>
+
+<td>
+
+<div class="score">
+
+{{ row.score }}
+
+</div>
+
+</td>
+
+<td>{{ row.triggered_rules }}</td>
+
+</tr>
+
+{% endfor %}
+
+{% else %}
+
+<tr>
+
+<td colspan="5">
+
+No URL analyses have been recorded yet.
+
+</td>
+
+</tr>
+
+{% endif %}
+
+</tbody>
+
+</table>
+
+<div class="buttons">
+
+<a href="/" class="btn">
+
+← Analyse Another URL
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

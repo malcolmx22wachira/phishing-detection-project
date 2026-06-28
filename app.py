@@ -134,5 +134,28 @@ def capture():
 # =====================================
 # RUN APPLICATION
 # =====================================
+# =====================================
+# VIEW ANALYSIS LOGS
+# =====================================
+@app.route("/logs")
+def view_logs():
+
+    log_file = os.path.join("logs", "analysis_log.csv")
+
+    logs = []
+
+    if os.path.exists(log_file):
+
+        with open(log_file, newline="", encoding="utf-8") as csvfile:
+
+            reader = csv.DictReader(csvfile)
+
+            for row in reader:
+                logs.append(row)
+
+    return render_template(
+        "logs.html",
+        logs=logs
+    )
 if __name__ == "__main__":
     app.run(debug=True)

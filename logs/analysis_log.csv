@@ -20,3 +20,29 @@ timestamp,url,verdict,score,triggered
 2026-06-24 07:45:23.701249,SDGSFB,LEGITIMATE,1,No HTTPS
 2026-06-24 10:32:15.994425,SDGSFB,LEGITIMATE,1,No HTTPS
 2026-06-24 10:32:43.042317,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-24 11:41:35.693111,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-24 11:49:28.352660,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-24 11:53:34.370497,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-24 11:54:15.200585,https://google.com,LEGITIMATE,0,
+2026-06-24 11:54:52.119871,https://google.com,LEGITIMATE,0,
+2026-06-24 11:55:02.774206,http://login-instagram-secure-update.com%%%,PHISHING,3,"Excessive Special Characters, No HTTPS, Suspicious Keywords"
+2026-06-24 11:55:24.612044,http://instagarn.com/login,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-24 13:06:31.599265,https://google.com78**,LEGITIMATE,0,
+2026-06-24 13:06:47.922974,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-24 14:41:44.287477,http://google.verify-login.security-account.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-24 15:39:48.107668,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-25 10:36:18.884963,https://google.com,LEGITIMATE,0,
+2026-06-26 11:51:26.395646,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-27 20:31:23.009361,http://google.verify-login.security-account.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-27 20:31:30.548129,http://login-bank-verify.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-28 09:12:04.985025,SDGSFB,LEGITIMATE,1,No HTTPS
+2026-06-28 09:12:28.079496,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-28 09:12:39.286049,http://instagarn.com/login,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-28 09:19:48.820421,https://www.google.com,LEGITIMATE,0,
+2026-06-28 09:19:56.363405,https://github.com,LEGITIMATE,0,
+2026-06-28 09:20:13.484716,http://paypal-login-secure.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-28 09:20:40.190983,http://www.bank-security-update-login-confirm-account-verification-paypal.com/index/login/update/security/verify/account,PHISHING,4,"Long URL, Excessive Special Characters, No HTTPS, Suspicious Keywords"
+2026-06-28 09:41:11.632184,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-28 09:41:55.154025,https://google.com,LEGITIMATE,0,
+2026-06-28 09:44:44.945794,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-06-28 09:48:34.622737,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
