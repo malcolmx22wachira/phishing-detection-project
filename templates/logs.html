@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Logs</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='logs.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🛡️ Phishing Detection System</h1>
+        <p>Analysis History Dashboard</p>
+    </div>
+
+    <div class="summary">
+
+        <div class="card">
+            <h2>{{ logs|length }}</h2>
+            <p>Total Analyses</p>
+        </div>
+
+        <div class="card">
+            <h2>CSV</h2>
+            <p>Stored Locally</p>
+        </div>
+
+        <div class="card">
+            <h2>Live</h2>
+            <p>Automatically Updated</p>
+        </div>
+
+    </div>
+
+    <table>
+
+        <thead>
+
+        <tr>
+            <th>Timestamp</th>
+            <th>URL</th>
+            <th>Verdict</th>
+            <th>Score</th>
+            <th>Triggered Rules</th>
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if logs %}
+
+            {% for row in logs %}
+
+            <tr>
+
+                <td>{{ row.timestamp }}</td>
+
+                <td class="url">{{ row.url }}</td>
+
+                <td>
+
+                    {% if row.verdict|lower == "legitimate" %}
+
+                        <span class="safe">{{ row.verdict }}</span>
+
+                    {% else %}
+
+                        <span class="danger">{{ row.verdict }}</span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+
+                    <span class="score">{{ row.score }}</span>
+
+                </td>
+
+                <td>{{ row.triggered_rules }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+
+                <td colspan="5">
+
+                    No URL analyses have been recorded yet.
+
+                </td>
+
+            </tr>
+
+        {% endif %}
+
+        </tbody>
+
+    </table>
+
+    <div class="footer">
+
+        <a href="/">← Back to URL Analysis</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>
