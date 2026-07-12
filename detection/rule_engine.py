@@ -56,7 +56,8 @@ class RuleEngine:
         if features["keywords"]:
             score += 1
             triggered.append("Suspicious Keywords")
-
+       
+  
         # Rule 6: Domain similarity
         distance = levenshtein(
             features["domain"],

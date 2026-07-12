@@ -54,6 +54,23 @@
             {% endfor %}
 
         </ul>
+    <hr>
+
+    <div class="recommendation">
+
+    <h3>Recommended Action</h3>
+
+    <ul>
+
+    {% for item in recommendation %}
+
+    <li>{{ item }}</li>
+
+    {% endfor %}
+
+</ul>
+
+</div>
 
     {% else %}
 

@@ -107,15 +107,35 @@ def analyse():
             ", ".join(result["triggered"])
         ])
 
+    # Generate recommendation based on verdict
+
+    if result["verdict"].lower() == "phishing":
+
+        recommendation = [
+            "Do not visit this website.",
+            "Do not enter usernames or passwords.",
+            "Close the page immediately.",
+            "Verify the website using its official domain.",
+            "Report the suspicious website to your IT administrator or browser."
+    ]
+
+    else:
+
+        recommendation = [
+        "The website appears legitimate based on the   implemented rules.",
+        "Always double-check the URL before entering personal information.",
+        "Confirm that HTTPS is present.",
+        "Keep your browser and antivirus software updated."
+    ]
+
     return render_template(
-        "result.html",
-        url=url,
+       "result.html",
         verdict=result["verdict"],
         score=result["score"],
         triggered=result["triggered"],
-        features=features
-    )
-
+        features=features,
+        recommendation=recommendation
+)
 
 # =====================================
 # PHISHING SIMULATION PAGE
