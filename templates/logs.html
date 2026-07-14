@@ -63,26 +63,24 @@
                 <td class="url">{{ row.url }}</td>
 
                 <td>
-
                     {% if row.verdict|lower == "legitimate" %}
-
                         <span class="safe">{{ row.verdict }}</span>
-
                     {% else %}
-
                         <span class="danger">{{ row.verdict }}</span>
-
                     {% endif %}
-
                 </td>
 
                 <td>
-
                     <span class="score">{{ row.score }}</span>
-
                 </td>
 
-                <td>{{ row.triggered_rules }}</td>
+                <td>
+                    {% if row.triggered == "[]" %}
+                        None
+                    {% else %}
+                        {{ row.triggered }}
+                    {% endif %}
+                </td>
 
             </tr>
 
@@ -91,13 +89,9 @@
         {% else %}
 
             <tr>
-
                 <td colspan="5">
-
                     No URL analyses have been recorded yet.
-
                 </td>
-
             </tr>
 
         {% endif %}
@@ -107,9 +101,7 @@
     </table>
 
     <div class="footer">
-
         <a href="/">← Back to URL Analysis</a>
-
     </div>
 
 </div>
