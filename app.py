@@ -107,8 +107,41 @@ def analyse():
             ", ".join(result["triggered"])
         ])
 
-    # Generate recommendation based on verdict
+    # Save phishing URLs to blacklist
+    if result["verdict"].upper() == "PHISHING":
 
+        blacklist_file = os.path.join(
+            "logs",
+            "blacklist.csv"
+        )
+
+        file_exists = os.path.exists(blacklist_file)
+
+        with open(
+            blacklist_file,
+            "a",
+            newline="",
+            encoding="utf-8"
+        ) as f:
+
+            writer = csv.writer(f)
+
+            if not file_exists:
+                writer.writerow([
+                    "timestamp",
+                    "url",
+                    "score",
+                    "triggered_rules"
+                ])
+
+            writer.writerow([
+                datetime.now(),
+                url,
+                result["score"],
+                ", ".join(result["triggered"])
+            ])
+
+    # Generate recommendation based on verdict
     if result["verdict"].lower() == "phishing":
 
         recommendation = [
@@ -117,16 +150,16 @@ def analyse():
             "Close the page immediately.",
             "Verify the website using its official domain.",
             "Report the suspicious website to your IT administrator or browser."
-    ]
+        ]
 
     else:
 
         recommendation = [
-        "The website appears legitimate based on the   implemented rules.",
-        "Always double-check the URL before entering personal information.",
-        "Confirm that HTTPS is present.",
-        "Keep your browser and antivirus software updated."
-    ]
+            "The website appears legitimate based on the   implemented rules.",
+            "Always double-check the URL before entering personal information.",
+            "Confirm that HTTPS is present.",
+            "Keep your browser and antivirus software updated."
+        ]
 
     return render_template(
        "result.html",
@@ -135,7 +168,8 @@ def analyse():
         triggered=result["triggered"],
         features=features,
         recommendation=recommendation
-)
+    )
+
 
 # =====================================
 # PHISHING SIMULATION PAGE
@@ -180,9 +214,6 @@ def capture():
 
 
 # =====================================
-# RUN APPLICATION
-# =====================================
-# =====================================
 # VIEW ANALYSIS LOGS
 # =====================================
 @app.route("/logs")
@@ -205,5 +236,51 @@ def view_logs():
         "logs.html",
         logs=logs
     )
+
+
+# =====================================
+# BLACKLIST REPORT
+# =====================================
+@app.route('/blacklist')
+def blacklist():
+
+    blacklist_file = os.path.join(
+        "logs",
+        "blacklist.csv"
+    )
+
+    blacklist_entries = []
+
+    if os.path.exists(blacklist_file):
+
+        with open(
+            blacklist_file,
+            newline='',
+            encoding='utf-8'
+        ) as f:
+
+            reader = csv.DictReader(f)
+
+            for row in reader:
+               
+                triggered = row.get("triggered_rules", "").strip()
+                if triggered:
+                    row["rules"] = [
+                        r.strip()
+                        for r in triggered.split(",")
+                    ]
+                else:
+                    row["rules"] = []
+                blacklist_entries.append(row)
+
+    return render_template(
+        "blacklist.html",
+        entries=blacklist_entries
+    )
+
+
+# =====================================
+# RUN APPLICATION
+# =====================================
 if __name__ == "__main__":
     app.run(debug=True)

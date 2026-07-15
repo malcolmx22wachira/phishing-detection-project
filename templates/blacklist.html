@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blacklist Report</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='blacklist.css') }}">
+
+</head>
+
+<body>
+
+<div class="report">
+
+    <!-- Header -->
+
+    <div class="header">
+
+        <h1>🛡️ Phishing URL Blacklist Report</h1>
+
+        <p>Rule-Based Phishing Detection System</p>
+
+    </div>
+
+    <!-- Summary Cards -->
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>{{ entries|length }}</h2>
+            <p>Blacklisted URLs</p>
+        </div>
+
+        <div class="card">
+            <h2>2</h2>
+            <p>Detection Threshold</p>
+        </div>
+
+        <div class="card">
+            <h2>ACTIVE</h2>
+            <p>Blacklist Status</p>
+        </div>
+
+    </div>
+
+    <hr>
+
+    <!-- Executive Summary -->
+
+    <h2>Executive Summary</h2>
+
+    <p>
+        This report contains all URLs automatically classified as
+        <strong>PHISHING</strong> by the Rule-Based Phishing Detection
+        System. Every URL listed here exceeded the phishing threshold
+        and has been added to the local blacklist.
+    </p>
+
+    <hr>
+
+    <!-- Blacklisted URLs -->
+
+    <h2>Blacklisted URLs</h2>
+
+    <table>
+
+        <thead>
+
+        <tr>
+
+            <th>Date</th>
+            <th>URL</th>
+            <th>Score</th>
+            <th>Triggered Rules</th>
+
+        </tr>
+
+        </thead>
+
+        <tbody>
+
+        {% if entries %}
+
+            {% for row in entries %}
+
+            <tr>
+
+                <td>{{ row.timestamp }}</td>
+
+                <td>{{ row.url }}</td>
+
+                <td>
+                    <span class="score">
+                        {{ row.score }}
+                    </span>
+                </td>
+
+                <td>
+
+                    {% if row.rules %}
+
+                        {% for rule in row.rules %}
+
+                            <div class="rule">
+                                ✓ {{ rule }}
+                            </div>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <span class="no-rule">
+                            No rules recorded
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        {% else %}
+
+            <tr>
+
+                <td colspan="4" style="text-align:center;">
+                    No phishing URLs have been blacklisted yet.
+                </td>
+
+            </tr>
+
+        {% endif %}
+
+        </tbody>
+
+    </table>
+
+    <hr>
+
+    <!-- Recommendations -->
+
+    <h2>Security Recommendations</h2>
+
+    <ul>
+
+        <li>Block all listed URLs on the network firewall.</li>
+
+        <li>Prevent users from accessing blacklisted websites.</li>
+
+        <li>Verify suspicious domains before entering credentials.</li>
+
+        <li>Educate users on phishing awareness.</li>
+
+        <li>Update the blacklist regularly.</li>
+
+    </ul>
+
+    <hr>
+
+    <!-- Navigation -->
+
+    <div class="buttons">
+
+        <a href="/">🏠 Home</a>
+
+        <a href="/logs">📊 Analysis Logs</a>
+
+        <a href="/simulation">🎭 Phishing Simulation</a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

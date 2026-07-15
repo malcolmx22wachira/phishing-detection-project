@@ -1,0 +1,4 @@
+timestamp,url,score,triggered_rules
+2026-07-15 17:49:35.926797,http://login-instagram-secure-update.com,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:50:36.942291,http://instagarn.com/loginnnnnnnnnn&&&&,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:50:48.253888,http://google.verify-login.security-account.comrrrrrrrrhrhthth%%%%,3,"Excessive Special Characters, No HTTPS, Suspicious Keywords"

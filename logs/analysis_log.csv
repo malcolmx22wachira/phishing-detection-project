@@ -87,3 +87,22 @@ timestamp,url,verdict,score,triggered
 2026-07-12 16:34:18.979807,http://instagarn.com/login,PHISHING,2,"No HTTPS, Suspicious Keywords"
 2026-07-14 15:58:28.727963,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
 2026-07-14 16:05:01.606491,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 13:44:35.083109,http://instagarn.com/login,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 13:45:45.895485,https://google.com,LEGITIMATE,0,
+2026-07-15 13:47:15.567720,https://www.google.com,LEGITIMATE,0,
+2026-07-15 13:48:20.940792,http://Strathmore.com,LEGITIMATE,1,No HTTPS
+2026-07-15 13:49:37.955034,http://login-bank-verify.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:05:45.013997,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:06:26.643306,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:06:40.975014,http://instagarn.com/login,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:16:16.513598,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:16:24.570567,http://google.verify-login.security-account.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:25:48.874638,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:34:23.163698,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:42:13.423976,http://google.verify-login.security-account.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:44:00.190757,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:47:40.263662,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:49:35.925769,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:50:13.381061,https://google.com,LEGITIMATE,0,
+2026-07-15 17:50:36.941770,http://instagarn.com/loginnnnnnnnnn&&&&,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-15 17:50:48.252860,http://google.verify-login.security-account.comrrrrrrrrhrhthth%%%%,PHISHING,3,"Excessive Special Characters, No HTTPS, Suspicious Keywords"
