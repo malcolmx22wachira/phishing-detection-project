@@ -69,9 +69,34 @@ class RuleEngine:
             triggered.append("Domain Similarity To Instagram")
 
         verdict = "PHISHING" if score >= 2 else "LEGITIMATE"
+        # Rule 7: Suspicious Top-Level Domain (TLD)
+       
+
+        suspicious_tlds = [
+           ".xyz",
+           ".top",
+           ".coom",
+           ".gq",
+           ".tk",
+           ".cf",
+           ".ml",
+           ".ga",
+           ".buzz",
+           ".click",
+           ".work",
+           ".zip",
+           ".review"
+]
+
+        domain = features.get("domain", "").lower()
+
+        if any(domain.endswith(tld) for tld in suspicious_tlds):
+           score += 1
+           triggered.append("Suspicious TLD")
 
         return {
             "verdict": verdict,
             "score": score,
             "triggered": triggered
         }
+       

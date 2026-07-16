@@ -106,3 +106,8 @@ timestamp,url,verdict,score,triggered
 2026-07-15 17:50:13.381061,https://google.com,LEGITIMATE,0,
 2026-07-15 17:50:36.941770,http://instagarn.com/loginnnnnnnnnn&&&&,PHISHING,2,"No HTTPS, Suspicious Keywords"
 2026-07-15 17:50:48.252860,http://google.verify-login.security-account.comrrrrrrrrhrhthth%%%%,PHISHING,3,"Excessive Special Characters, No HTTPS, Suspicious Keywords"
+2026-07-16 08:14:29.280560,http://login-instagram-secure-update.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-16 08:20:33.126433,http://google.verify-login.security-account.com,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-16 08:31:25.000320,http://instagarn.com/login,PHISHING,2,"No HTTPS, Suspicious Keywords"
+2026-07-16 08:33:13.245839,http://facebook-login.xyz,PHISHING,3,"No HTTPS, Suspicious Keywords, Suspicious TLD"
+2026-07-16 08:38:25.735734,http://google.verify-login.security-account.com,PHISHING,2,"No HTTPS, Suspicious Keywords"

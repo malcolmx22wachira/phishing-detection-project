@@ -31,7 +31,7 @@ class URLParser:
 
         return {
             "url": url,
-            "domain": domain,
+            "domain": parsed.netloc,
             "length": len(url),
             "special_chars": special_chars,
             "subdomains": domain.count("."),
