@@ -84,3 +84,20 @@ table td{
 table th{
     background:#f0f0f0;
 }
+.risk-level{
+    margin-top:15px;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.low{
+    color:#28a745;
+}
+
+.medium{
+    color:#ff9800;
+}
+
+.high{
+    color:#d32f2f;
+}

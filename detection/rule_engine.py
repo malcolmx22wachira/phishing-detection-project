@@ -56,11 +56,10 @@ class RuleEngine:
         if features["keywords"]:
             score += 1
             triggered.append("Suspicious Keywords")
-       
-  
+
         # Rule 6: Domain similarity
         distance = levenshtein(
-            features["domain"],
+            features["domain"].lower(),
             "instagram.com"
         )
 
@@ -68,35 +67,39 @@ class RuleEngine:
             score += 2
             triggered.append("Domain Similarity To Instagram")
 
-        verdict = "PHISHING" if score >= 2 else "LEGITIMATE"
         # Rule 7: Suspicious Top-Level Domain (TLD)
-       
-
         suspicious_tlds = [
-           ".xyz",
-           ".top",
-           ".coom",
-           ".gq",
-           ".tk",
-           ".cf",
-           ".ml",
-           ".ga",
-           ".buzz",
-           ".click",
-           ".work",
-           ".zip",
-           ".review"
-]
+            ".xyz",
+            ".top",
+            ".coom",
+            ".gq",
+            ".tk",
+            ".cf",
+            ".ml",
+            ".ga",
+            ".buzz",
+            ".click",
+            ".work",
+            ".zip",
+            ".review"
+        ]
 
         domain = features.get("domain", "").lower()
 
         if any(domain.endswith(tld) for tld in suspicious_tlds):
-           score += 1
-           triggered.append("Suspicious TLD")
+            score += 1
+            triggered.append("Suspicious TLD")
+
+        # Rule 8: Domain Does Not Resolve
+        if not features.get("resolves", True):
+            score += 2
+            triggered.append("Domain Does Not Resolve")
+
+        # Final verdict (must come AFTER all rules)
+        verdict = "PHISHING" if score >= 2 else "LEGITIMATE"
 
         return {
             "verdict": verdict,
             "score": score,
             "triggered": triggered
         }
-       

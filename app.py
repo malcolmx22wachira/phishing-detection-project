@@ -55,9 +55,10 @@ def analyse():
 
     # Extract URL features
     features = parser.parse(url)
-
+    print("FEATURES:", features)
     # Run detection engine
     result = engine.analyse(features)
+    print("RESULT:", result)
     print("========== DEBUG ==========")
     print(result)
     print("===========================")
@@ -160,11 +161,23 @@ def analyse():
             "Confirm that HTTPS is present.",
             "Keep your browser and antivirus software updated."
         ]
+ # =====================================
+ # DETERMINE OVERALL RISK LEVEL
+ # =====================================
+    if result["score"] <= 2:
+        risk_level = "LOW RISK"
 
+    elif result["score"] <= 5:
+        risk_level = "MEDIUM RISK"
+
+    else:
+        risk_level = "HIGH RISK"
+    print("Overall Risk Level:", risk_level)
     return render_template(
        "result.html",
         verdict=result["verdict"],
         score=result["score"],
+        risk_level=risk_level,
         triggered=result["triggered"],
         features=features,
         recommendation=recommendation

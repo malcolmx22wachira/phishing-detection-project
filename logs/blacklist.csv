@@ -7,3 +7,8 @@ timestamp,url,score,triggered_rules
 2026-07-16 08:31:25.001349,http://instagarn.com/login,2,"No HTTPS, Suspicious Keywords"
 2026-07-16 08:33:13.246886,http://facebook-login.xyz,3,"No HTTPS, Suspicious Keywords, Suspicious TLD"
 2026-07-16 08:38:25.739550,http://google.verify-login.security-account.com,2,"No HTTPS, Suspicious Keywords"
+2026-07-16 09:17:29.865675,http://login-instagram-secure-update.com,2,"No HTTPS, Suspicious Keywords"
+2026-07-16 09:18:45.188972,http://login-instagram-secure-update.com,2,"No HTTPS, Suspicious Keywords"
+2026-07-16 09:36:09.233275,http://login-instagram-secure-update.com,4,"No HTTPS, Suspicious Keywords, Domain Does Not Resolve"
+2026-07-16 09:38:36.865307,https://googlee.coom&&&&&&&&&&,2,Domain Does Not Resolve
+2026-07-16 09:45:56.160052,http://login-instagram-secure-update.com,4,"No HTTPS, Suspicious Keywords, Domain Does Not Resolve"

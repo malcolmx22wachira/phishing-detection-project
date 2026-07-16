@@ -1,6 +1,19 @@
+import socket
 from urllib.parse import urlparse
 
 
+def resolves(domain):
+    """
+    Returns True if the domain resolves via DNS.
+    """
+
+    try:
+        socket.setdefaulttimeout(2)
+        socket.gethostbyname(domain)
+        return True
+
+    except Exception:
+        return False
 class URLParser:
 
     def parse(self, url):
@@ -36,5 +49,6 @@ class URLParser:
             "special_chars": special_chars,
             "subdomains": domain.count("."),
             "https": url.startswith("https://"),
-            "keywords": keyword_found
+            "keywords": keyword_found,
+            "resolves": resolves(domain)
         }
