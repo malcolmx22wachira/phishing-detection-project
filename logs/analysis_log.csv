@@ -119,3 +119,6 @@ timestamp,url,verdict,score,triggered
 2026-07-16 09:36:09.232249,http://login-instagram-secure-update.com,PHISHING,4,"No HTTPS, Suspicious Keywords, Domain Does Not Resolve"
 2026-07-16 09:38:36.864279,https://googlee.coom&&&&&&&&&&,PHISHING,2,Domain Does Not Resolve
 2026-07-16 09:45:56.159536,http://login-instagram-secure-update.com,PHISHING,4,"No HTTPS, Suspicious Keywords, Domain Does Not Resolve"
+2026-07-16 09:57:23.793673,https://goo0gle.coom,PHISHING,3,"Suspicious TLD, Domain Does Not Resolve"
+2026-07-16 09:58:21.608419,http://instagarn.co9om/loginnnnn,PHISHING,4,"No HTTPS, Suspicious Keywords, Domain Does Not Resolve"
+2026-07-16 09:58:34.981331,http://login-instagra77m-secure-update.com3wrg2,PHISHING,4,"No HTTPS, Suspicious Keywords, Domain Does Not Resolve"
